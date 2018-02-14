@@ -4,7 +4,12 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
+    
+    @contacts = if params[:term]
+    Contact.where('FirstName LIKE ?', "%#{params[:term]}%") or  Contact.where('LastName LIKE ?', "%#{params[:term]}%")
+  else
     @contacts = Contact.all
+  end
   end
 
   # GET /contacts/1
@@ -69,6 +74,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:FirstName, :LastName, :Phone, :Email, :Address)
+      params.require(:contact).permit(:FirstName, :LastName, :Phone, :Email, :Address,:term)
     end
 end

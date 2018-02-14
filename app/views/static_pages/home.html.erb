@@ -1,0 +1,15 @@
+
+
+
+
+<div class="jumbotron vertical-center">
+      
+      <div class="container homesearchbox text-center">
+        <%= form_tag(contacts_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search' %>
+<% end %>
+      </div>
+      
+    </div> 
+  

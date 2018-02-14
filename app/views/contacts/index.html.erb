@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Contacts</h1>
+
+<%= form_tag(contacts_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
 <div class='jumbotron'>
 <table>
   <thead>
