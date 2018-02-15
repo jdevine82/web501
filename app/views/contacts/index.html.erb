@@ -14,7 +14,7 @@
 <br>
 
 <div class='jumbotron'>
-<%= will_paginate(@Contacts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+<%= will_paginate(@contacts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
 <div class='table-responsive'>
 <table class='table table-bordered table-hover '>
   <thead>
@@ -33,11 +33,11 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td> <%= image_tag contact.avatar.url(:thumb), class: 'align-middle' %> </td>
-        <td class: "align-middle"><%= contact.FirstName %></td>
-        <td class: "align-middle"><%= contact.LastName%></td>
-        <td class: "align-middle"><%= contact.Phone %></td>
+        <td class: "align-middle"><%= contact.firstname %></td>
+        <td class: "align-middle"><%= contact.lastname%></td>
+        <td class: "align-middle"><%= contact.phone %></td>
         <td class: "align-middle"><%= contact.email %></td>
-        <td class: "align-middle"><%= contact.Address %></td>
+        <td class: "align-middle"><%= contact.address %></td>
         <td class: "align-middle"><%= link_to 'Show', contact %></td>
         <% if user_signed_in? %><td class: "align-middle"><%= link_to 'Edit', edit_contact_path(contact) %></td>
         <td class: "align-middle"><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td> 

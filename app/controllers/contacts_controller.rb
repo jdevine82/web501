@@ -9,9 +9,9 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
      add_breadcrumb "index", contacts_path
-      @a=Contact.order(:FirstName)
+      @a=Contact.order(:firstName)
     @contacts = if params[:term]
-    @a=@a.where('contacts.FirstName LIKE ?', "%#{params[:term]}%") or  @a.where('contacts.LastName LIKE ?', "%#{params[:term]}%")
+    @a=@a.where('contacts.firstname LIKE ?', "%#{params[:term]}%") or  @a.where('contacts.lastname LIKE ?', "%#{params[:term]}%")
    
    @contacts=@a.paginate(page: params[:page])
   else
@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1/edit
   def edit
-    @namestring='Editing '+@contact.FirstName+' '+@contact.LastName
+    @namestring='Editing '+@contact.firstname+' '+@contact.lastname
 
   end
 
@@ -90,6 +90,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:FirstName, :LastName, :Phone, :email, :Address,:term,:avatar)
+      params.require(:contact).permit(:firstname, :lastname, :phone, :email, :address,:term,:avatar)
     end
 end

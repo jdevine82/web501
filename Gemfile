@@ -26,7 +26,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem "paperclip", "~> 5.2.1"
 gem "scrollreveal-rails"   
-gem 'will_paginate',           '3.1.6'
+gem 'will_paginate'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'aws-sdk', '~> 2.6'
 gem "breadcrumbs_on_rails"
