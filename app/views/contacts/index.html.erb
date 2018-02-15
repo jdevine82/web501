@@ -31,7 +31,7 @@
 
   <tbody>
     <% @contacts.each do |contact| %>
-      <tr>
+      <tr data-link="<%=contact_path(contact)%>">
         <td> <%= image_tag contact.avatar.url(:thumb), class: 'align-middle' %> </td>
         <td class: "align-middle"><%= contact.firstname %></td>
         <td class: "align-middle"><%= contact.lastname%></td>
