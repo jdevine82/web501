@@ -11,7 +11,8 @@ class ContactsController < ApplicationController
      add_breadcrumb "index", contacts_path
       @a=Contact.order(:firstname)
     @contacts = if params[:term]
-    @a=@a.where('contacts.firstname LIKE ?', "%#{params[:term]}%") or  @a.where('contacts.lastname LIKE ?', "%#{params[:term]}%")
+    
+    @a=@a.where('lower(contacts.firstname) LIKE ?', "%#{params[:term]}%".downcase) or  @a.where('lower(contacts.lastname) LIKE ?', "%#{params[:term.downcase]}%.downcase")
    
    @contacts=@a.paginate(page: params[:page])
   else
