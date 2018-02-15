@@ -1,64 +1,80 @@
+@import "bootstrap";
 $gray-medium-light: #eaeaea;
 $gray-light: #c7c9cc;
 $gray: #9f9fa0;
 $gray-darker: #5d5d5e;
 $blue:#2e45f4;
 $blue-darker:#010842;
+$genericopacity: 0.8;
 
 body,html {
   height: 90%;
     background-image: url("background.jpg");
-    background-repeat: no-repeat;
+    background-size:auto;
     background-attachment: fixed;
+    
+    .jumbotron {
+      opacity: $genericopacity;
+    }
 }
 
 
  
 footer {
-  height: 10%;
+  height: 50px;
   margin-top: 45px;
-  padding-top: 5px;
+  
   border-top: 1px solid $gray-medium-light;
-  background-color: #FFF;
-  color: $gray-light;
-  a {
-    float:right;
-    padding: 10px 5px 0px 5px;
-    color: $blue;
-    &:hover {
-      color: $blue-darker;
-     background-color: transparent;
-    }
-  }
+  color: black;
+  background-color: $gray;
+  opacity: $genericopacity;
+    a {
+      font-family: verdana, arial, helvetica, sans-serif;
+       font-size: 13px;
+       line-height: 18px;
+       font-weight: bold;
+      float:right;
+      padding: 10px 5px 0px 5px;
+      opacity: 1;
+        &:hover {
+        color: $blue-darker;
+       background-color: transparent;
+                }
+        }
   small {
     float: left;
-      padding: 30px 0;
-  }
+        }
   ul {
     float: left;
     list-style: none;
     li {
       float: left;
       margin-left: 15px;
-    
-    }
-  
-    img {
-  max-width:50%;
-  max-height:50%;
-}
+        }
+      }
+      
+  p {
+    padding-top: 20px;
+    padding-left: 5px;
   }
-  
- 
 }
 
 .searchbox {
 width: 25rem;
  padding: 25px 25px 25px 25px;
+ opacity: $genericopacity;
 }
 
 .showavatar {
   max-width: 100%;
   height: auto;
+}
+
+.logo {
+  float:left;
+  height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 50px;
 }
 

@@ -30,10 +30,13 @@ class ContactsController < ApplicationController
   def new
     add_breadcrumb "new", new_contact_path
     @contact = Contact.new
+    @namestring='New Contact'
   end
 
   # GET /contacts/1/edit
   def edit
+    @namestring='Editing '+@contact.FirstName+' '+@contact.LastName
+
   end
 
   # POST /contacts

@@ -4,7 +4,8 @@
 <div class='col-lg'>
  <%= image_tag @contact.avatar.url(:original), class: 'showavatar image-fluid' %>
 </div>
-<div class='col-lg'>
+<div class='col-lg jumbotron'>
+
 <p>
   <strong>First Name:</strong>
   <%= @contact.FirstName %>
@@ -30,11 +31,16 @@
   <strong>Address:</strong>
   <%= @contact.Address %>
 </p>
-<%= button_to 'Back', contacts_path, method: 'get'%>
 
-</div>
-</div>
-</div>
 <%if user_signed_in?%>
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%end%>
+<%= link_to 'Back', contacts_path, method: 'get'%>
+
+<br>
+ <%= render_breadcrumbs %>
+</div>
+</div>
+</div>
+
+

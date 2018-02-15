@@ -1,4 +1,5 @@
 <%= form_for(@contact) do |f| %>
+
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -11,6 +12,13 @@
     </div>
   <% end %>
 
+<div class='row'>
+<div class='col-lg'>
+ <%= image_tag @contact.avatar.url(:original), class: 'showavatar image-fluid' %>
+</div>
+<div class='col-lg'>
+<div class='jumbotron'>
+<h1><%= @namestring %></h1>
   <div class="field">
     <%= f.label :FirstName %><br>
     <%= f.text_field :FirstName %>
@@ -36,4 +44,15 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+ 
+ 
+  
+  
+<%= link_to 'Back', contacts_path, method: 'get'%>
+
+<br>
+ <%= render_breadcrumbs %>
 <% end %>
+ </div>
+ </div>
+  </div>

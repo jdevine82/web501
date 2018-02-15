@@ -1,15 +1,12 @@
 
 <footer class="footer">
-
+ 
   
-  <nav>
-    <ul>
-
-      <li><%= image_tag("MemosTonight.png", class: 'logo') %></li>
-    </ul>
-  </nav>
+    <%= image_tag("MemosTonight.png", class: 'logo') %>
+    
+ 
   <small>
-   <p>&copy; 2018 Memos Tonight.com<p>
+   <p>&copy; 2018 Memos Tonight.com</p>
             
   </small>
   
@@ -23,5 +20,5 @@
 <%= link_to("Log Out", destroy_user_session_path, method: :delete) %>
 <% end %>
 
-            
+  </div>          
 </footer>

@@ -32,23 +32,24 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td> <%= image_tag contact.avatar.url(:thumb) %> </td>
-        <td><%= contact.FirstName %></td>
-        <td><%= contact.LastName %></td>
-        <td><%= contact.Phone %></td>
-        <td><%= contact.Email %></td>
-        <td><%= contact.Address %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td> <%= image_tag contact.avatar.url(:thumb), class: 'align-middle' %> </td>
+        <td class: "align-middle"><%= contact.FirstName %></td>
+        <td class: "align-middle"><%= contact.LastName%></td>
+        <td class: "align-middle"><%= contact.Phone %></td>
+        <td class: "align-middle"><%= contact.Email %></td>
+        <td class: "align-middle"><%= contact.Address %></td>
+        <td class: "align-middle"><%= link_to 'Show', contact %></td>
+        <td class: "align-middle"><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td class: "align-middle"><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr
     <% end %>
   </tbody>
 </table>
 <%= will_paginate(@Contacts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-
-
-</div>
 <br>
 
 <%= link_to 'New Contact', new_contact_path %>
+
+ <%= render_breadcrumbs %>
+
+</div>
