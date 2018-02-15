@@ -11,10 +11,11 @@ class ContactsController < ApplicationController
      add_breadcrumb "index", contacts_path
       @a=Contact.order(:FirstName)
     @contacts = if params[:term]
-    @a=@a.where('Contacts.FirstName LIKE ?', "%#{params[:term]}%") or  @a.where('Contacts.LastName LIKE ?', "%#{params[:term]}%")
+    @a=@a.where('contacts.FirstName LIKE ?', "%#{params[:term]}%") or  @a.where('contacts.LastName LIKE ?', "%#{params[:term]}%")
    
    @contacts=@a.paginate(page: params[:page])
   else
+    
     @contacts = @a.all
     @contacts= @a.paginate(page: params[:page])
   end
