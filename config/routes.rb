@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  
+   root 'static_pages#home'
+  devise_for :users
   get 'static_pages/home'
+  post 'destroy_user_session_p',  to: 'devise/sessions#destroy'
 
   resources :contacts
-   root to: "home#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

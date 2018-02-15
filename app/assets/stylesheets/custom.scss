@@ -1,63 +1,54 @@
-html, body {
-  height: 100%;
+$gray-medium-light: #eaeaea;
+$gray-light: #c7c9cc;
+$gray: #9f9fa0;
+$gray-darker: #5d5d5e;
+body,html {
+  height: 90%;
 }
 
-.jumbotron.vertical-center {
-  margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
+footer {
+  height: 10%;
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+      padding: 30px 0;
+  }
+  ul {
+    float: left;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    
+    }
+  
+    img {
+  max-width:50%;
+  max-height:50%;
 }
-
-.vertical-center {
-  min-height: 100%;  /* Fallback for vh unit */
-  min-height: 100vh; /* You might also want to use
-                        'height' property instead.
-                        
-                        Note that for percentage values of
-                        'height' or 'min-height' properties,
-                        the 'height' of the parent element
-                        should be specified explicitly.
+  }
   
-                        In this case the parent of '.vertical-center'
-                        is the <body> element */
-
-  /* Make it a flex container */
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex; 
-  
-  /* Align the bootstrap's container vertically */
-    -webkit-box-align : center;
-  -webkit-align-items : center;
-       -moz-box-align : center;
-       -ms-flex-align : center;
-          align-items : center;
-  
-  /* In legacy web browsers such as Firefox 9
-     we need to specify the width of the flex container */
-  width: 100%;
-  
-  /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
-     hence the bootstrap's container won't be aligned to the center anymore.
-  
-     Therefore, we should use the following declarations to get it centered again */
-         -webkit-box-pack : center;
-            -moz-box-pack : center;
-            -ms-flex-pack : center;
-  -webkit-justify-content : center;
-          justify-content : center;
+  #logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
-
-.container {
- 
-}
-
-.homesearchbox {
-     background-color: #b1a8a6;
- 
-  padding-top: 50px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    border-radius: 10px;
 }

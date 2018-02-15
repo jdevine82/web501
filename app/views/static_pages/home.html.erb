@@ -1,15 +1,26 @@
 
+    <div class="row align-items-center h-100">
+        <div class="col-8 mx-auto">
+            <div class="jumbotron text-center">
+            <h1> Memos Tonight </h1>
+            <br>
+              <%= form_tag(contacts_path, method: :get) do %>
+              <%= text_field_tag :term %>
+              <%= submit_tag 'Search' %>
+              <% end %>
+              <br>
+              <br>
+              <br>
+              <%= link_to 'Registration', new_user_registration_path %>
+             <%= link_to("Log Out", destroy_user_session_path, method: :delete) %>
+             <%= link_to("Log In", new_user_session_path) %>
+            </div>
+        </div>
+          </div>
 
 
 
-<div class="jumbotron vertical-center">
-      
-      <div class="container homesearchbox text-center">
-        <%= form_tag(contacts_path, method: :get) do %>
-  <%= text_field_tag :term %>
-  <%= submit_tag 'Search' %>
-<% end %>
-      </div>
-      
-    </div> 
-  
+
+     
+       
+
