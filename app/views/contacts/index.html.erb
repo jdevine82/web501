@@ -15,8 +15,8 @@
 
 <div class='jumbotron'>
 <%= will_paginate(@Contacts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-
-<table class='table table-bordered table-hover table-responsive'>
+<div class='table-responsive'>
+<table class='table table-bordered table-hover '>
   <thead>
     <tr>
       <th>Avatar </th>
@@ -36,19 +36,21 @@
         <td class: "align-middle"><%= contact.FirstName %></td>
         <td class: "align-middle"><%= contact.LastName%></td>
         <td class: "align-middle"><%= contact.Phone %></td>
-        <td class: "align-middle"><%= contact.Email %></td>
+        <td class: "align-middle"><%= contact.email %></td>
         <td class: "align-middle"><%= contact.Address %></td>
         <td class: "align-middle"><%= link_to 'Show', contact %></td>
-        <td class: "align-middle"><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td class: "align-middle"><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %><td class: "align-middle"><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td class: "align-middle"><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+        <% end %>
       </tr
     <% end %>
   </tbody>
 </table>
+</div>
 <%= will_paginate(@Contacts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<% if user_signed_in?%> <%= link_to 'New Contact', new_contact_path %> <% end %>
 
  <%= render_breadcrumbs %>
 

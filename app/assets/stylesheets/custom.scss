@@ -30,8 +30,8 @@ footer {
   opacity: $genericopacity;
     a {
       font-family: verdana, arial, helvetica, sans-serif;
-       font-size: 13px;
-       line-height: 18px;
+      
+       
        font-weight: bold;
       float:right;
       padding: 10px 5px 0px 5px;
@@ -41,8 +41,9 @@ footer {
        background-color: transparent;
                 }
         }
-  small {
+  .xsmall {
     float: left;
+    font-size: smaller;
         }
   ul {
     float: left;
@@ -60,7 +61,8 @@ footer {
 }
 
 .searchbox {
-width: 25rem;
+ max-width: 320px;
+
  padding: 25px 25px 25px 25px;
  opacity: $genericopacity;
 }
@@ -78,3 +80,29 @@ width: 25rem;
     max-height: 50px;
 }
 
+@include media-breakpoint-up(xsm) {
+  footer{
+    a{
+    font-size:  9px;
+    line-height: 9px;
+  }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  footer {
+    a{
+    font-size:  10px;
+    line-height: 10px;
+  }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  footer {
+    a{
+    font-size:  16px;
+    line-height: 18px;
+  }
+  }
+}
