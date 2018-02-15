@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :Phone %><br>
-    <%= f.number_field :Phone %>
+    <%= f.text_field :Phone %>
   </div>
   <div class="field">
     <%= f.label :Email %><br>
@@ -31,6 +31,8 @@
     <%= f.label :Address %><br>
     <%= f.text_field :Address %>
   </div>
+  
+  <%= f.file_field :avatar %>
   <div class="actions">
     <%= f.submit %>
   </div>

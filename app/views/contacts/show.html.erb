@@ -1,20 +1,26 @@
 <p id="notice"><%= notice %></p>
-
+<div class='container'>
+<div class='row'>
+<div class='col-lg'>
+ <%= image_tag @contact.avatar.url(:original), class: 'showavatar image-fluid' %>
+</div>
+<div class='col-lg'>
 <p>
-  <strong>Firstname:</strong>
+  <strong>First Name:</strong>
   <%= @contact.FirstName %>
 </p>
+<br>
 
 <p>
-  <strong>Lastname:</strong>
+  <strong>Last Name:</strong>
   <%= @contact.LastName %>
 </p>
-
+<br>
 <p>
-  <strong>Phone:</strong>
+  <strong>Phone Number:</strong>
   <%= @contact.Phone %>
 </p>
-
+<br>
 <p>
   <strong>Email:</strong>
   <%= @contact.Email %>
@@ -24,6 +30,11 @@
   <strong>Address:</strong>
   <%= @contact.Address %>
 </p>
+<%= button_to 'Back', contacts_path, method: 'get'%>
 
+</div>
+</div>
+</div>
+<%if user_signed_in?%>
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<%end%>

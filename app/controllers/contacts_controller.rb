@@ -1,25 +1,34 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  
+  add_breadcrumb "home", :root_path
+  add_breadcrumb "contacts", :contacts_path
 
   # GET /contacts
   # GET /contacts.json
   def index
-    
+     add_breadcrumb "index", contacts_path
+      @a=Contact.order(:FirstName)
     @contacts = if params[:term]
-    Contact.where('FirstName LIKE ?', "%#{params[:term]}%") or  Contact.where('LastName LIKE ?', "%#{params[:term]}%")
+    @a=@a.where('FirstName LIKE ?', "%#{params[:term]}%") or  @a.where('LastName LIKE ?', "%#{params[:term]}%")
+   
+   @contacts=@a.paginate(page: params[:page])
   else
-    @contacts = Contact.all
+    @contacts = @a.all
+    @contacts= @a.paginate(page: params[:page])
   end
   end
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    add_breadcrumb "Show", contact_path
   end
 
   # GET /contacts/new
   def new
+    add_breadcrumb "new", new_contact_path
     @contact = Contact.new
   end
 
@@ -31,6 +40,8 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
+
+  @contact = Contact.create(contact_params)
 
     respond_to do |format|
       if @contact.save
@@ -75,6 +86,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:FirstName, :LastName, :Phone, :Email, :Address,:term)
+      params.require(:contact).permit(:FirstName, :LastName, :Phone, :Email, :Address,:term,:avatar)
     end
 end
