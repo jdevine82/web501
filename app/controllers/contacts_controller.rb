@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
      add_breadcrumb "index", contacts_path
-      @a=Contact.order(:firstName)
+      @a=Contact.order(:firstname)
     @contacts = if params[:term]
     @a=@a.where('contacts.firstname LIKE ?', "%#{params[:term]}%") or  @a.where('contacts.lastname LIKE ?', "%#{params[:term]}%")
    
