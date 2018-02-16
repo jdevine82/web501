@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <br>
 <div class="card searchbox" >
  
@@ -25,7 +25,8 @@
       <th>Phone</th>
       <th>Email</th>
       <th>Address</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
+      <% if user_signed_in? %> <th colspan="2"></th> <%end%>
     </tr>
   </thead>
 
@@ -33,16 +34,16 @@
     <% @contacts.each do |contact| %>
       <tr data-link="<%=contact_path(contact)%>">
         <td> <%= image_tag contact.avatar.url(:thumb), class: 'align-middle' %> </td>
-        <td class: "align-middle"><%= contact.firstname %></td>
-        <td class: "align-middle"><%= contact.lastname%></td>
-        <td class: "align-middle"><%= contact.phone %></td>
-        <td class: "align-middle"><%= contact.email %></td>
-        <td class: "align-middle"><%= contact.address %></td>
-        <td class: "align-middle"><%= link_to 'Show', contact %></td>
-        <% if user_signed_in? %><td class: "align-middle"><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td class: "align-middle"><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+        <td class= 'align-middle'><%= contact.firstname %></td>
+        <td class= 'align-middle'><%= contact.lastname%></td>
+        <td class= 'align-middle'><%= contact.phone %></td>
+        <td class= 'align-middle'><%= contact.email %></td>
+        <td class= 'align-middle'><%= contact.address %></td>
+        <td class= 'align-middle'><%= link_to 'Show', contact %></td>
+        <% if user_signed_in? %><td class= 'align-middle'><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td class= 'align-middle'><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
         <% end %>
-      </tr
+      </tr>
     <% end %>
   </tbody>
 </table>
